@@ -26,8 +26,7 @@ def build_argparser():
     parser = ArgumentParser(add_help=False)
     args = parser.add_argument_group('Options')
     args.add_argument('-h', '--help', action='help', default=SUPPRESS, help='Show this help message and exit.')
-    args.add_argument("-m", "--model", help="Required. Path to an .xml file with a trained model.", required=True,
-                      type=str)
+    args.add_argument("-m", "--model", help="Required. Path to an .xml file with a trained model.", required=True,type=str)
     args.add_argument("-i", "--input", help="Required. Path to a folder with images or path to an image files",
                       type=str,
                       default=None)
@@ -41,11 +40,6 @@ def build_argparser():
                            "acceptable. The sample will look for a suitable plugin for device specified. Default "
                            "value is CPU",
                       default="CPU", type=str)
-    args.add_argument("--labels", help="Optional. Path to a labels mapping file", default=None, type=str)
-    args.add_argument("-nt", "--number_top", help="Optional. Number of top results", default=10, type=int)
-    args.add_argument("-ni", "--number_iter", help="Optional. Number of inference iterations", default=1, type=int)
-    args.add_argument("-pc", "--perf_counts", help="Optional. Report performance counters", default=False,
-                      action="store_true")
 
     return parser
 
@@ -96,8 +90,8 @@ def main():
         res = exec_net.infer(inputs={input_blob: frame})[out_blob]
         i += 1
 
-        log.info("#{} res: {}".format(i, res[0][0][0][0]))
-        cv2.imshow("Test", img)
+        log.info("#{} infer, res: {}".format(i, res[0][0][0]))
+        cv2.imshow("debug", img)
         cv2.waitKey(1)
 
 if __name__ == '__main__':
