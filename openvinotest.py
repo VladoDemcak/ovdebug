@@ -87,10 +87,11 @@ def main():
     while cap.isOpened():
         ret, img = cap.read()
         frame = cv2.resize(img, (w, h)).transpose((2, 0, 1)) if img.shape[:-1] != (h, w) else img
+        log.info("#{} infer starting...".format(i))
         res = exec_net.infer(inputs={input_blob: frame})[out_blob]
+        log.info("#{} infer finished, res: {}".format(i, res[0][0][0]))
         i += 1
 
-        log.info("#{} infer, res: {}".format(i, res[0][0][0]))
         cv2.imshow("debug", img)
         cv2.waitKey(1)
 
