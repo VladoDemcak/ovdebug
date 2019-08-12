@@ -1,21 +1,39 @@
 # ovdebug
-```
-
 1.	Make sure you have openvino 2019R1 
 2.	Make sure you have docker and docker-compose installed (versions of docker and docker-compose are in README file in github repository) 
 3.	Make sure you have FPGA installed properly. aocl diagnose should return board information and DIAGNOSTIC_PASSED message
-4.	Clone repository with debug application: git clone https://github.com/VladoDemcak/ovdebug
-5.	Change directory: cd ovdebug
-6.	Run application with FPGA:  python3 openvinotest.py -i videos/person-bicycle-car-detection.mp4 -m squeezenet1.1_FP16/squeezenet1.1.xml -d HETERO:FPGA,CPU
+4.	Clone repository with debug application: 
+```
+git clone https://github.com/VladoDemcak/ovdebug
+```
+5.	Change directory: 
+```
+cd ovdebug
+```
+6.	Run application with FPGA:  
+```
+python3 openvinotest.py -i videos/person-bicycle-car-detection.mp4 -m squeezenet1.1_FP16/squeezenet1.1.xml -d HETERO:FPGA,CPU
+```
 7.	Application should end successfully 
-8.	Run docker compose: docker-compose up -d 
-9.	Run application with FPGA again:  python3 openvinotest.py -i videos/person-bicycle-car-detection.mp4 -m squeezenet1.1_FP16/squeezenet1.1.xml -d HETERO:FPGA,CPU
+8.	Run docker compose: 
+```
+docker-compose up -d 
+```
+9.	Run application with FPGA again:  
+```
+python3 openvinotest.py -i videos/person-bicycle-car-detection.mp4 -m squeezenet1.1_FP16/squeezenet1.1.xml -d HETERO:FPGA,CPU
+```
 10.	If the application doesn’t freeze repeat step #9. 
-11.	Remove kafka docker image: docker rm -f kafka 
-12.	Run application with FPGA again:  python3 openvinotest.py -i videos/person-bicycle-car-detection.mp4 -m squeezenet1.1_FP16/squeezenet1.1.xml -d HETERO:FPGA,CPU
+11.	Remove kafka docker image: 
+```
+docker rm -f kafka 
+```
+12.	Run application with FPGA again:  
+```
+python3 openvinotest.py -i videos/person-bicycle-car-detection.mp4 -m squeezenet1.1_FP16/squeezenet1.1.xml -d HETERO:FPGA,CPU
+```
 13.	Application should work again without freezing.
 
-```
 
 ```
 $ docker version
