@@ -1,7 +1,11 @@
 # ovdebug
 1.	Make sure you have openvino 2019R1 
 2.	Make sure you have docker and docker-compose installed (versions of docker and docker-compose are in README file in github repository). Make sure nothing is running in docker with "docker ps -a"
-3.	Make sure you have FPGA installed properly. aocl diagnose should return board information and DIAGNOSTIC_PASSED message
+3.	Make sure you have FPGA installed properly. 
+```
+aocl diagnose
+```
+should return board information and DIAGNOSTIC_PASSED message
 4.	Clone repository with debug application: 
 ```
 git clone https://github.com/VladoDemcak/ovdebug
