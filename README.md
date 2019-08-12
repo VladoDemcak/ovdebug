@@ -1,6 +1,8 @@
 # ovdebug
 Simple debug openvino FPGA app.
 
+It looks like FPGA is freezing when there is running docker container (e.g. kafka)
+
 ## How to reproduce the freezing issue
 1.	Make sure you have openvino 2019R1 
 2.	Make sure you have docker and docker-compose installed (versions of docker and docker-compose are in README file in github repository). Make sure nothing is running in docker with `docker ps -a`
