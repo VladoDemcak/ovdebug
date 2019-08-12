@@ -86,6 +86,8 @@ def main():
     i = 0
     while cap.isOpened():
         ret, img = cap.read()
+        if img is None:
+            break
         frame = cv2.resize(img, (w, h)).transpose((2, 0, 1)) if img.shape[:-1] != (h, w) else img
         log.info("#{} exec_net.infer starting...".format(i))
         res = exec_net.infer(inputs={input_blob: frame})[out_blob]
@@ -94,6 +96,10 @@ def main():
 
         cv2.imshow("debug", img)
         cv2.waitKey(1)
+
+    cv2.destroyAllWindows()
+    cap.release()
+
 
 if __name__ == '__main__':
     sys.exit(main() or 0)
