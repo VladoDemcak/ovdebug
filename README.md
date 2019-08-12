@@ -6,6 +6,7 @@
 aocl diagnose
 ```
 should return board information and DIAGNOSTIC_PASSED message
+
 4.	Clone repository with debug application: 
 ```
 git clone https://github.com/VladoDemcak/ovdebug
