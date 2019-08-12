@@ -3,7 +3,7 @@ Simple debug openvino FPGA app.
 
 ## How to reproduce the freezing issue
 1.	Make sure you have openvino 2019R1 
-2.	Make sure you have docker and docker-compose installed (versions of docker and docker-compose are in README file in github repository). Make sure nothing is running in docker with "docker ps -a"
+2.	Make sure you have docker and docker-compose installed (versions of docker and docker-compose are in README file in github repository). Make sure nothing is running in docker with `docker ps -a`
 3.	Make sure you have FPGA installed properly. 
 ```
 aocl diagnose
@@ -80,11 +80,16 @@ docker-compose version 1.24.0, build 0aa59064
 ```
 
 
-##Reproducing the freezing issue.
+## Reproducing the freezing issue.
 Below is one of our test with executing the steps from "How to reproduce the freezing issue".
 In this case we had:
-HETERO:FPGA,CPU + docker kafka : 1 successfull 2 unsuccessful
-HETERO:FPGA,CPU without docker kafka: 1 successfull
+| setup  | successful processing | failed  |   
+|---|---|---|
+| HETERO:FPGA,CPU + docker kafka  | 1  | 4 times (infer call #220, #426, #486, #157)|
+| HETERO:FPGA,CPU without docker kafka  | 3  | 0 |
+
+
+
 ```
 
 user-xyz@hostname-xyz:~/vasp$ ls -la /opt/intel/openvino
