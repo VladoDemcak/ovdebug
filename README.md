@@ -83,6 +83,7 @@ docker-compose version 1.24.0, build 0aa59064
 ## Reproducing the freezing issue.
 Below is one of our test with executing the steps from "How to reproduce the freezing issue".
 In this case we had:
+
 | setup  | successful processing | failed  |   
 |---|---|---|
 | HETERO:FPGA,CPU + docker kafka  | 1  | 4 times (infer call #220, #426, #486, #157)|
